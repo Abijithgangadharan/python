@@ -1,4 +1,4 @@
-name: Python Hello World
+name: Java Hello World
 
 on:
   push:
@@ -6,18 +6,21 @@ on:
       - main
 
 jobs:
-  hello-world:
+  build:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: Set up Java
+      uses: actions/setup-java@v3
       with:
-        python-version: '3.x'
+        distribution: 'temurin' # Use the AdoptOpenJDK distribution
+        java-version: '11'      # Specify Java version, e.g., 8, 11, 17
 
-    - name: Run Hello World script
+    - name: Compile and Run Java Program
       run: |
-        python hello.py
+        echo 'public class HelloWorld { public static void main(String[] args) { System.out.println("Hello, World!"); } }' > HelloWorld.java
+        hello.java
+        java HelloWorld
