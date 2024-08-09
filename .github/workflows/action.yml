@@ -21,6 +21,6 @@ jobs:
 
     - name: Compile and Run Java Program
       run: |
-        echo 'public class HelloWorld { public static void main(String[] args) { System.out.println("Hello, World!"); } }' > HelloWorld.java
-        hello.java
-        java HelloWorld
+        echo 'public class Hello { public static void main(String[] args) { System.out.println("Hello, World!"); } }' > hello.java
+        javac hello.java
+        java Hello
